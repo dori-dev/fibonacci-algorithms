@@ -2,26 +2,28 @@
 
 Types of Fibonacci codes in Python with their performance testing!
 
+# Algorithms
+
 #
 
-# Recursive
+## Recursive
 
 TODO
 
 #
 
-# Cache
+## Cache
 
 TODO
 
 #
 
-# Class
+## Class
 
 TODO
 
 #
 
-# Loop
+## Loop
 
 TODO
