@@ -62,3 +62,11 @@ if not (isinstance(COUNT, int) and COUNT >= 0):
 
 fibonacci_numbers = (fibonacci(number) for number in range(COUNT))
 print('fibonacci(10) ->', *fibonacci_numbers)
+
+RUNS = '''
+fibonacci_numbers = (fibonacci(number) for number in range(counts[index]))
+data = list(fibonacci_numbers)
+index += 1
+if index == len(counts):
+    index = 0
+'''
