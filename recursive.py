@@ -37,8 +37,8 @@ def test_fibonacci() -> bool:
     return fib_numbers == result
 
 
-def optimization_test(numbers: int, codes: str, setup: str) -> None:
-    """test the optimization of this fibonacci algorithm
+def performance_test(numbers: int, codes: str, setup: str) -> None:
+    """test the performance of this fibonacci algorithm
 
     Args:
         numbers (int): fibonacci numbers
@@ -92,4 +92,4 @@ counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
 index = 0
 '''
 
-optimization_test(fibonacci_numbers, RUN, SETUP)
+performance_test(fibonacci_numbers, RUN, SETUP)
