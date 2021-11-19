@@ -1,6 +1,7 @@
 """fibonacci with recursive functions
 """
 
+# Standart library imports
 from sys import getsizeof
 from timeit import timeit
 
@@ -33,10 +34,10 @@ def test_fibonacci() -> bool:
     for number in range(len(fib_numbers)):
         result.append(fibonacci(number))
 
-    return result == fib_numbers
+    return fib_numbers == result
 
 
-def optimization_test(numbers: int, codes: str, setup: str):
+def optimization_test(numbers: int, codes: str, setup: str) -> None:
     """test the optimization of this fibonacci algorithm
 
     Args:
@@ -63,12 +64,14 @@ if not (isinstance(COUNT, int) and COUNT >= 0):
 fibonacci_numbers = (fibonacci(number) for number in range(COUNT))
 print('fibonacci(10) ->', *fibonacci_numbers)
 
+
 RUN = '''
 fibonacci_numbers = (fibonacci(number) for number in range(counts[index]))
 data = list(fibonacci_numbers)
 index += 1
 if index == len(counts):
-    index = 0'''
+    index = 0
+'''
 
 SETUP = '''def fibonacci(number: int) -> int:
     """calculate the fibonacci number of this index
@@ -86,6 +89,7 @@ SETUP = '''def fibonacci(number: int) -> int:
     return fibonacci(number - 1) + fibonacci(number - 2)
 
 counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
-index = 0'''
+index = 0
+'''
 
 optimization_test(fibonacci_numbers, RUN, SETUP)
