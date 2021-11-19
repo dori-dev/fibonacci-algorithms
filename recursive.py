@@ -37,6 +37,13 @@ def test_fibonacci() -> bool:
 
 
 def optimization_test(numbers: int, codes: str, setup: str) -> bool:
+    """test the optimization of this fibonacci algorithm
+
+    Args:
+        numbers (int): fibonacci numbers
+        codes (str): run codes
+        setup (str): setup codes
+    """
     if test_fibonacci():
         print('Correct algorithm!')
     else:
