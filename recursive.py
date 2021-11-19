@@ -2,3 +2,4 @@
 """
 
 from sys import getsizeof
+from timeit import timeit
