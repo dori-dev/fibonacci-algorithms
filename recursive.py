@@ -70,3 +70,21 @@ index += 1
 if index == len(counts):
     index = 0
 '''
+
+SETUP = '''def fibonacci(number: int) -> int:
+    """calculate the fibonacci number of this index
+
+   Args:
+        number(int): index of fibonacci numbers
+
+    Returns:
+        int: fibonacci number
+    """
+
+    if number in {0, 1}:
+        return number
+
+    return fibonacci(number - 1) + fibonacci(number - 2)
+
+counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
+index = 0'''
