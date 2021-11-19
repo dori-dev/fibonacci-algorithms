@@ -54,3 +54,9 @@ def optimization_test(numbers: int, codes: str, setup: str):
     print(getsizeof(numbers), 'bytes.')
 
     print('time', timeit(codes, setup=setup, number=1000))
+
+
+COUNT = 10
+
+if not (isinstance(COUNT, int) and COUNT >= 0):
+    raise ValueError("Please enter a positive interger!")
