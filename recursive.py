@@ -34,3 +34,15 @@ def test_fibonacci() -> bool:
         result.append(fibonacci(number))
 
     return result == fib_numbers
+
+
+def optimization_test(numbers, codes, setup) -> bool:
+    if test_fibonacci():
+        print('Correct algorithm!')
+    else:
+        print('Incorrect algorithm!')
+        return
+
+    print(getsizeof(numbers), 'bytes.')
+
+    print('time', timeit(codes, setup=setup, number=1000))
