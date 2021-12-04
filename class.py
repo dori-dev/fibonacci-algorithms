@@ -16,3 +16,17 @@ class Fibonacci:
         fib_number = self(number - 1) + self(number - 2)
         self.cache.append(fib_number)
         return self.cache[number]
+
+
+
+def test_fibonacci() -> bool:
+    """test the fibonacci function
+
+    Returns:
+        bool: True if `fibonacci` currect work else False
+    """
+    fib_numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    result = []
+    for number in range(len(fib_numbers)):
+        result.append(fibonacci(number))
+    return fib_numbers == result
