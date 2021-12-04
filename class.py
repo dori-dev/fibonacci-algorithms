@@ -4,6 +4,7 @@
 # Standart library imports
 from sys import getsizeof
 from timeit import timeit
+from time import time
 
 
 class Fibonacci:
@@ -17,8 +18,7 @@ class Fibonacci:
         self.cache.append(fib_number)
         return self.cache[number]
 
-    @staticmethod
-    def test_fibonacci() -> bool:
+    def test_fibonacci(self) -> bool:
         """test the fibonacci function
 
         Returns:
@@ -27,11 +27,10 @@ class Fibonacci:
         fib_numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
         result = []
         for number in range(len(fib_numbers)):
-            result.append(fibonacci(number))
+            result.append(self(number))
         return fib_numbers == result
 
-    @staticmethod
-    def performance_test(numbers: int, codes: str, setup: str) -> None:
+    def performance_test(self, numbers: int, codes: str, setup: str) -> None:
         """test the performance of this fibonacci algorithm
 
         Args:
@@ -39,7 +38,7 @@ class Fibonacci:
             codes (str): run codes
             setup (str): setup codes
         """
-        if test_fibonacci():
+        if self.test_fibonacci():
             print('Correct Algorithm!')
         else:
             print('Incorrect Algorithm!')
@@ -47,6 +46,8 @@ class Fibonacci:
         print(getsizeof(numbers), 'bytes.')
         print('time', timeit(codes, setup=setup, number=1000))
 
+
+fibonacci = Fibonacci()
 
 COUNT = 10
 if not (isinstance(COUNT, int) and COUNT >= 0):
@@ -84,4 +85,4 @@ index = 0
 '''
 
 
-performance_test(fibonacci_numbers, RUN, SETUP)
+fibonacci.performance_test(fibonacci_numbers, RUN, SETUP)
