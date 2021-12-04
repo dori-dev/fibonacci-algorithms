@@ -27,7 +27,7 @@ class Fibonacci:
             result.append(self(number))
         return fib_numbers == result
 
-    def performance_test(self, numbers: int, codes: str, setup: str) -> None:
+    def performance_test(self, numbers: int, codes: str, setup: str):
         """test the performance of this fibonacci algorithm
 
         Args:
