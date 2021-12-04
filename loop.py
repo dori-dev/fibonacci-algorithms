@@ -80,3 +80,5 @@ SETUP = '''def fibonacci(number: int) -> int:
 counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
 index = 0
 '''
+
+performance_test(fibonacci_numbers, RUN, SETUP)
