@@ -30,3 +30,9 @@ def test_fibonacci() -> bool:
     for number in range(len(fib_numbers)):
         result.append(fibonacci(number))
     return fib_numbers == result
+
+COUNT = 10
+if not (isinstance(COUNT, int) and COUNT >= 0):
+    raise ValueError("Please enter a positive interger!")
+fibonacci_numbers = (fibonacci(number) for number in range(COUNT))
+print('fibonacci(10) ->', *fibonacci_numbers)
