@@ -7,10 +7,22 @@ from timeit import timeit
 
 
 class Fibonacci:
+    """Fibonacci Class
+    """
+
     def __init__(self):
         self.cache = [0, 1]
 
     def __call__(self, number):
+        """calculate the fibonacci number of `number` index
+
+        Args:
+            number(int): index of fibonacci numbers
+
+        Returns:
+            int: fibonacci number
+        """
+        # if number fewer than length of cache means not in cache
         if number >= len(self.cache):
             self.cache.append(self(number - 1) + self(number - 2))
         return self.cache[number]
