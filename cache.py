@@ -40,6 +40,23 @@ def test_fibonacci() -> bool:
     return fib_numbers == result
 
 
+def performance_test(numbers: int, codes: str, setup: str) -> None:
+    """test the performance of this fibonacci algorithm
+
+    Args:
+        numbers (int): fibonacci numbers
+        codes (str): run codes
+        setup (str): setup codes
+    """
+    if test_fibonacci():
+        print('Correct Algorithm!')
+    else:
+        print('Incorrect Algorithm!')
+        return
+    print(getsizeof(numbers), 'bytes.')
+    print('time', timeit(codes, setup=setup, number=1000))
+
+
 COUNT = 10
 if not (isinstance(COUNT, int) and COUNT >= 0):
     raise ValueError("Please enter a positive interger!")
