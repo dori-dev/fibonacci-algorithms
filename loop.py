@@ -6,14 +6,21 @@ from sys import getsizeof
 from timeit import timeit
 
 
-def fibonacci(number):
-    first, second = 0, 1
-    data = []
-    for _ in range(1, number+1):
-        data.append(first)
-        first, second = second, first + second
+def fibonacci(number: int) -> list:
+    """calculate the fibonacci numbers from 0 to number
 
-    return data
+   Args:
+        number(int): index of fibonacci numbers
+
+    Returns:
+        list: list of fibonacci numbers
+    """
+    first, second = 0, 1
+    result = []
+    for _ in range(1, number+1):
+        result.append(first)
+        first, second = second, first + second
+    return result
 
 
 def test_fibonacci() -> bool:
@@ -23,9 +30,7 @@ def test_fibonacci() -> bool:
         bool: True if `fibonacci` currect work else False
     """
     fib_numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-    result = []
-    for number in range(len(fib_numbers)):
-        result.append(fibonacci(number))
+    result = fibonacci(len(fib_numbers))
     return fib_numbers == result
 
 
@@ -49,34 +54,33 @@ def performance_test(numbers: int, codes: str, setup: str) -> None:
 COUNT = 10
 if not (isinstance(COUNT, int) and COUNT >= 0):
     raise ValueError("Please enter a positive interger!")
-fibonacci_numbers = (fibonacci(number) for number in range(COUNT))
+fibonacci_numbers = fibonacci(COUNT)
 print('fibonacci(10) ->', *fibonacci_numbers)
 
 
 RUN = '''
-fibonacci_numbers = (fibonacci(number) for number in range(counts[index]))
-data = list(fibonacci_numbers)
+fibonacci_numbers = fibonacci(counts[index])
 index += 1
 if index == len(counts):
     index = 0
 '''
 
 
-SETUP = '''def fibonacci(number: int) -> int:
-    """calculate the fibonacci number of this index
+SETUP = '''def fibonacci(number: int) -> list:
+    """calculate the fibonacci numbers from 0 to number
 
    Args:
         number(int): index of fibonacci numbers
 
     Returns:
-        int: fibonacci number
+        list: list of fibonacci numbers
     """
-
-    if number in {0, 1}:
-        return number
-
-    return fibonacci(number - 1) + fibonacci(number - 2)
-
+    first, second = 0, 1
+    result = []
+    for _ in range(1, number+1):
+        result.append(first)
+        first, second = second, first + second
+    return result
 counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
 index = 0
 '''
