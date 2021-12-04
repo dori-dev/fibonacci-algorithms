@@ -11,10 +11,8 @@ class Fibonacci:
         self.cache = [0, 1]
 
     def __call__(self, number):
-        if number < len(self.cache):
-            return self.cache[number]
-        fib_number = self(number - 1) + self(number - 2)
-        self.cache.append(fib_number)
+        if number >= len(self.cache):
+            self.cache.append(self(number - 1) + self(number - 2))
         return self.cache[number]
 
     def test_fibonacci(self) -> bool:
@@ -69,10 +67,8 @@ SETUP = '''class Fibonacci:
         self.cache = [0, 1]
 
     def __call__(self, number):
-        if number < len(self.cache):
-            return self.cache[number]
-        fib_number = self(number - 1) + self(number - 2)
-        self.cache.append(fib_number)
+        if number >= len(self.cache):
+            self.cache.append(self(number - 1) + self(number - 2))
         return self.cache[number]
 
 fibonacci = Fibonacci()
