@@ -14,7 +14,7 @@ cache = {
 
 
 def fibonacci(number: int) -> int:
-    """calculate fibonacci of the number
+    """calculate fibonacci of the number use cache.
 
    Args:
         number(int): number with calculate it fibonacci
@@ -73,24 +73,25 @@ if index == len(counts):
 '''
 
 
-SETUP = '''def fibonacci(number: int) -> int:
-    """calculate the fibonacci number of this index
+SETUP = '''cache = {
+    0: 0,
+    1: 1
+}
+def fibonacci(number: int) -> int:
+    """calculate fibonacci of the number use cache.
 
    Args:
-        number(int): index of fibonacci numbers
+        number(int): number with calculate it fibonacci
 
     Returns:
-        int: fibonacci number
+        int: fibonacci(number - 1) + fibonacci(number -2)  recursive case
     """
-
-    if number in {0, 1}:
-        return number
-
-    return fibonacci(number - 1) + fibonacci(number - 2)
+    if number not in cache:
+        cache[number] = fibonacci(number - 1) + fibonacci(number - 2)
+    return cache[number]
 
 counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
-index = 0
-'''
+index = 0'''
 
 
 performance_test(fibonacci_numbers, RUN, SETUP)
