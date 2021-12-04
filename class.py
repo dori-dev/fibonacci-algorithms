@@ -4,7 +4,6 @@
 # Standart library imports
 from sys import getsizeof
 from timeit import timeit
-from time import time
 
 
 class Fibonacci:
@@ -65,20 +64,18 @@ if index == len(counts):
 '''
 
 
-SETUP = '''def fibonacci(number: int) -> int:
-    """calculate the fibonacci number of this index
+SETUP = '''class Fibonacci:
+    def __init__(self):
+        self.cache = [0, 1]
 
-   Args:
-        number(int): index of fibonacci numbers
+    def __call__(self, number):
+        if number < len(self.cache):
+            return self.cache[number]
+        fib_number = self(number - 1) + self(number - 2)
+        self.cache.append(fib_number)
+        return self.cache[number]
 
-    Returns:
-        int: fibonacci number
-    """
-
-    if number in {0, 1}:
-        return number
-
-    return fibonacci(number - 1) + fibonacci(number - 2)
+fibonacci = Fibonacci()
 
 counts = [1, 0, 20, 15, 10, 2, 5, 9, 4]
 index = 0
