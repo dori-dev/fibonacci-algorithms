@@ -44,3 +44,10 @@ def performance_test(numbers: int, codes: str, setup: str) -> None:
         return
     print(getsizeof(numbers), 'bytes.')
     print('time', timeit(codes, setup=setup, number=1000))
+
+
+COUNT = 10
+if not (isinstance(COUNT, int) and COUNT >= 0):
+    raise ValueError("Please enter a positive interger!")
+fibonacci_numbers = (fibonacci(number) for number in range(COUNT))
+print('fibonacci(10) ->', *fibonacci_numbers)
